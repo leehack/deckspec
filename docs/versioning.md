@@ -10,10 +10,10 @@ Published schemas use immutable Git tag URLs:
 https://raw.githubusercontent.com/leehack/deckspec/v<package-version>/schemas/<schema-file>
 ```
 
-For the initial release, the source deck schema ID is:
+For the current release, the source deck schema ID is:
 
 ```text
-https://raw.githubusercontent.com/leehack/deckspec/v0.1.0/schemas/deck.schema.json
+https://raw.githubusercontent.com/leehack/deckspec/v0.2.0/schemas/deck.schema.json
 ```
 
 Do not use `main` branch URLs as `$id` values in published schemas. `main` is mutable and can make older deck files validate against newer rules.
@@ -24,7 +24,7 @@ Deck source files may include:
 
 ```json
 {
-  "schemaVersion": "0.1.0"
+  "schemaVersion": "0.2.0"
 }
 ```
 

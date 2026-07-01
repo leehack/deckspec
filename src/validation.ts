@@ -425,7 +425,11 @@ export function validateDeck(
         );
       else elementIds.add(e.id);
       const elementType = typeof e.type === 'string' ? e.type : '';
-      if (!['text', 'shape', 'line', 'image', 'table', 'chart', 'media'].includes(elementType))
+      if (
+        !['text', 'shape', 'line', 'image', 'imageShape', 'table', 'chart', 'media'].includes(
+          elementType,
+        )
+      )
         issues.push(
           issue(
             'invalid-element-type',
@@ -472,7 +476,11 @@ export function validateDeck(
             elementId: e.id,
           }),
         );
-      if (e.type === 'image' && typeof e.imagePath !== 'string' && typeof e.imageData !== 'string')
+      if (
+        (e.type === 'image' || e.type === 'imageShape') &&
+        typeof e.imagePath !== 'string' &&
+        typeof e.imageData !== 'string'
+      )
         issues.push(
           issue(
             'missing-image-path',
