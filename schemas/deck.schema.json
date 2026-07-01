@@ -1,0 +1,778 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/leehack/deckspec/v0.1.0/schemas/deck.schema.json",
+  "title": "DeckSpec Deck Source or Normalized Deck",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["deckId", "size", "template", "theme", "slides"],
+  "properties": {
+    "deckId": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "title": {
+      "type": "string"
+    },
+    "template": {
+      "$ref": "#/$defs/nonEmptyString"
+    },
+    "theme": {
+      "enum": ["dark", "light"]
+    },
+    "normalized": {
+      "type": "boolean"
+    },
+    "size": {
+      "$ref": "#/$defs/size"
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/slide"
+      }
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "revision": {
+          "type": "string"
+        }
+      }
+    },
+    "nativeOptions": {
+      "$ref": "#/$defs/openObject"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/section"
+      }
+    },
+    "slideMasters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/slideMaster"
+      }
+    },
+    "schemaVersion": {
+      "type": "string",
+      "description": "DeckSpec schema version used by this deck source. Omit to use the package default.",
+      "const": "0.1.0"
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "nonNegativeNumber": {
+      "type": "number",
+      "minimum": 0
+    },
+    "positiveNumber": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^(#?[0-9A-Fa-f]{6}|\\{colors\\.[A-Za-z0-9_-]+\\})$"
+    },
+    "openObject": {
+      "type": "object",
+      "propertyNames": {
+        "not": {
+          "enum": ["__proto__", "prototype", "constructor"]
+        }
+      },
+      "additionalProperties": true
+    },
+    "margin": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "items": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      ]
+    },
+    "size": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["w", "h"],
+      "properties": {
+        "w": {
+          "$ref": "#/$defs/positiveNumber"
+        },
+        "h": {
+          "$ref": "#/$defs/positiveNumber"
+        }
+      }
+    },
+    "sourcePointer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["jsonPointer"],
+      "properties": {
+        "style": {
+          "type": "string"
+        },
+        "slot": {
+          "type": "string"
+        },
+        "jsonPointer": {
+          "type": "string",
+          "pattern": "^/"
+        }
+      }
+    },
+    "hyperlink": {
+      "type": "object",
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": ["url"]
+        },
+        {
+          "required": ["slide"]
+        }
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slide": {
+          "type": "number"
+        },
+        "tooltip": {
+          "type": "string"
+        }
+      }
+    },
+    "fill": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "color": {
+          "$ref": "#/$defs/color"
+        },
+        "transparency": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "lineStyle": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "color": {
+          "$ref": "#/$defs/color"
+        },
+        "width": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "transparency": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "dash": {
+          "type": "string"
+        },
+        "beginArrowType": {
+          "type": "string"
+        },
+        "endArrowType": {
+          "type": "string"
+        }
+      }
+    },
+    "imageSizing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "w", "h"],
+      "properties": {
+        "type": {
+          "enum": ["contain", "cover", "crop"]
+        },
+        "w": {
+          "$ref": "#/$defs/positiveNumber"
+        },
+        "h": {
+          "$ref": "#/$defs/positiveNumber"
+        },
+        "x": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "y": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        }
+      }
+    },
+    "tableCell": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "text": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/tableCell"
+                  }
+                }
+              ]
+            },
+            "options": {
+              "$ref": "#/$defs/openObject"
+            }
+          }
+        }
+      ]
+    },
+    "tableRow": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/tableCell"
+      }
+    },
+    "chartSeries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "labels", "values"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "labels": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "elementBase": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "type": {
+          "enum": ["text", "shape", "line", "image", "table", "chart", "media"]
+        },
+        "slot": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "style": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "x": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "y": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "w": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "h": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "x1": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "y1": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "x2": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "y2": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "z": {
+          "type": "number"
+        },
+        "text": {
+          "type": "string"
+        },
+        "shape": {
+          "type": "string",
+          "minLength": 1
+        },
+        "imagePath": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "fontFace": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "fontSize": {
+          "$ref": "#/$defs/positiveNumber"
+        },
+        "bold": {
+          "type": "boolean"
+        },
+        "italic": {
+          "type": "boolean"
+        },
+        "color": {
+          "$ref": "#/$defs/color"
+        },
+        "margin": {
+          "$ref": "#/$defs/margin"
+        },
+        "breakLine": {
+          "type": "boolean"
+        },
+        "charSpace": {
+          "type": "number"
+        },
+        "align": {
+          "enum": ["left", "center", "right", "justify"]
+        },
+        "valign": {
+          "enum": ["top", "mid", "middle", "bottom"]
+        },
+        "fit": {
+          "enum": ["shrink", "resize"]
+        },
+        "hyperlink": {
+          "$ref": "#/$defs/hyperlink"
+        },
+        "fill": {
+          "$ref": "#/$defs/fill"
+        },
+        "line": {
+          "$ref": "#/$defs/lineStyle"
+        },
+        "rectRadius": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "rotate": {
+          "type": "number",
+          "minimum": -360,
+          "maximum": 360
+        },
+        "transparency": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "shadow": {
+          "$ref": "#/$defs/openObject"
+        },
+        "objectName": {
+          "type": "string"
+        },
+        "altText": {
+          "type": "string"
+        },
+        "flipH": {
+          "type": "boolean"
+        },
+        "flipV": {
+          "type": "boolean"
+        },
+        "rounding": {
+          "type": "boolean"
+        },
+        "sizing": {
+          "$ref": "#/$defs/imageSizing"
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/tableRow"
+          }
+        },
+        "chartType": {
+          "enum": ["area", "bar", "bar3D", "bubble", "doughnut", "line", "pie", "radar", "scatter"]
+        },
+        "data": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/chartSeries"
+          }
+        },
+        "mediaType": {
+          "enum": ["audio", "online", "video"]
+        },
+        "link": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "path": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "cover": {
+          "type": "string"
+        },
+        "extn": {
+          "type": "string"
+        },
+        "options": {
+          "$ref": "#/$defs/openObject"
+        },
+        "source": {
+          "$ref": "#/$defs/sourcePointer"
+        },
+        "runs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/textRun"
+          }
+        },
+        "imageData": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "underline": {
+          "type": "boolean"
+        },
+        "wrap": {
+          "type": "boolean"
+        },
+        "highlight": {
+          "$ref": "#/$defs/color"
+        },
+        "lineSpacing": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "lineSpacingMultiple": {
+          "$ref": "#/$defs/nonNegativeNumber"
+        },
+        "bullet": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "$ref": "#/$defs/openObject"
+            }
+          ]
+        },
+        "colW": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/positiveNumber"
+          }
+        },
+        "rowH": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/positiveNumber"
+          }
+        },
+        "autoPage": {
+          "type": "boolean"
+        },
+        "autoPageRepeatHeader": {
+          "type": "boolean"
+        },
+        "autoPageHeaderRows": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "showLegend": {
+          "type": "boolean"
+        },
+        "showTitle": {
+          "type": "boolean"
+        },
+        "showValue": {
+          "type": "boolean"
+        },
+        "chartColors": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/color"
+          }
+        },
+        "catAxisLabelColor": {
+          "$ref": "#/$defs/color"
+        },
+        "valAxisLabelColor": {
+          "$ref": "#/$defs/color"
+        },
+        "catAxisLabelFontFace": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "valAxisLabelFontFace": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "catAxisLabelFontSize": {
+          "$ref": "#/$defs/positiveNumber"
+        },
+        "valAxisLabelFontSize": {
+          "$ref": "#/$defs/positiveNumber"
+        },
+        "catAxisTitle": {
+          "type": "string"
+        },
+        "valAxisTitle": {
+          "type": "string"
+        },
+        "valAxisMinVal": {
+          "type": "number"
+        },
+        "valAxisMaxVal": {
+          "type": "number"
+        },
+        "valGridLine": {
+          "$ref": "#/$defs/lineStyle"
+        },
+        "nativeOptions": {
+          "$ref": "#/$defs/openObject"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "text"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "anyOf": [
+              {
+                "required": ["text"]
+              },
+              {
+                "required": ["runs"]
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "image"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "anyOf": [
+              {
+                "required": ["imagePath"]
+              },
+              {
+                "required": ["imageData"]
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "table"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["rows"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "chart"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["chartType", "data"]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "media"
+              }
+            },
+            "required": ["type"]
+          },
+          "then": {
+            "required": ["mediaType"],
+            "anyOf": [
+              {
+                "required": ["link"]
+              },
+              {
+                "required": ["path"]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "slide": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "layout", "elements"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "layout": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "background": {
+          "$ref": "#/$defs/color"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "elements": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/elementBase"
+          }
+        },
+        "backgroundImage": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "backgroundData": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "backgroundTransparency": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "masterName": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "sectionTitle": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "color": {
+          "$ref": "#/$defs/color"
+        },
+        "slideNumber": {
+          "$ref": "#/$defs/openObject"
+        },
+        "nativeOptions": {
+          "$ref": "#/$defs/openObject"
+        }
+      }
+    },
+    "textRun": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text"],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "options": {
+          "$ref": "#/$defs/openObject"
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title"],
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "slideMaster": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title"],
+      "properties": {
+        "title": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "background": {
+          "$ref": "#/$defs/openObject"
+        },
+        "margin": {
+          "$ref": "#/$defs/margin"
+        },
+        "slideNumber": {
+          "$ref": "#/$defs/openObject"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/openObject"
+          }
+        },
+        "nativeOptions": {
+          "$ref": "#/$defs/openObject"
+        }
+      }
+    }
+  }
+}

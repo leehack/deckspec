@@ -1,0 +1,21 @@
+{
+  "layoutId": "timeline",
+  "description": "Three-step horizontal timeline.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 120, "y": 92, "w": 760, "h": 40 },
+    "title": { "x": 120, "y": 150, "w": 1380, "h": 150 },
+    "body": { "x": 124, "y": 320, "w": 1120, "h": 90 },
+    "line": { "x": 300, "y": 575, "w": 1320, "h": 1 },
+    "step1Dot": { "x": 260, "y": 535, "w": 80, "h": 80 },
+    "step1Title": { "x": 180, "y": 650, "w": 360, "h": 95 },
+    "step1Body": { "x": 180, "y": 800, "w": 360, "h": 90 },
+    "step2Dot": { "x": 920, "y": 535, "w": 80, "h": 80 },
+    "step2Title": { "x": 840, "y": 650, "w": 360, "h": 95 },
+    "step2Body": { "x": 840, "y": 800, "w": 360, "h": 90 },
+    "step3Dot": { "x": 1580, "y": 535, "w": 80, "h": 80 },
+    "step3Title": { "x": 1500, "y": 650, "w": 360, "h": 95 },
+    "step3Body": { "x": 1500, "y": 800, "w": 360, "h": 90 },
+    "footer": { "x": 124, "y": 980, "w": 1120, "h": 42 }
+  }
+}

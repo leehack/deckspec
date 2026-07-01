@@ -1,0 +1,13 @@
+{
+  "layoutId": "section-break",
+  "description": "High-emphasis divider slide for narrative turns.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 120, "y": 120, "w": 760, "h": 40 },
+    "title": { "x": 120, "y": 340, "w": 1280, "h": 220 },
+    "body": { "x": 124, "y": 610, "w": 1040, "h": 110 },
+    "numberPill": { "x": 1430, "y": 390, "w": 260, "h": 110 },
+    "numberText": { "x": 1488, "y": 420, "w": 150, "h": 52 },
+    "footer": { "x": 124, "y": 930, "w": 1120, "h": 42 }
+  }
+}

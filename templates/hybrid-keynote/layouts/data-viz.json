@@ -1,0 +1,16 @@
+{
+  "layoutId": "data-viz",
+  "description": "Structured chart, table, and visual evidence layout with a clear three-column grid.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 96, "y": 70, "w": 900, "h": 32 },
+    "title": { "x": 96, "y": 126, "w": 1140, "h": 118 },
+    "body": { "x": 96, "y": 320, "w": 1040, "h": 78 },
+    "chart": { "x": 96, "y": 470, "w": 760, "h": 310 },
+    "table": { "x": 930, "y": 455, "w": 610, "h": 255 },
+    "imageFrame": { "x": 1320, "y": 755, "w": 260, "h": 190 },
+    "image": { "x": 1350, "y": 785, "w": 200, "h": 130 },
+    "caption": { "x": 1320, "y": 950, "w": 260, "h": 1 },
+    "footer": { "x": 96, "y": 980, "w": 1100, "h": 32 }
+  }
+}

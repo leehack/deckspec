@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/leehack/deckspec/v0.1.0/schemas/styles.schema.json",
+  "title": "DeckSpec Styles",
+  "type": "object",
+  "minProperties": 1,
+  "$defs": {
+    "color": {
+      "type": "string",
+      "pattern": "^(#?[0-9A-Fa-f]{6}|\\{colors\\.[A-Za-z0-9_-]+\\})$"
+    },
+    "paintObject": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "color": {
+          "$ref": "#/$defs/color"
+        }
+      }
+    }
+  },
+  "additionalProperties": {
+    "type": "object",
+    "additionalProperties": true,
+    "minProperties": 1,
+    "properties": {
+      "fontSize": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      },
+      "fontFace": {
+        "type": "string",
+        "minLength": 1
+      },
+      "color": {
+        "$ref": "#/$defs/color"
+      },
+      "fill": {
+        "$ref": "#/$defs/paintObject"
+      },
+      "line": {
+        "$ref": "#/$defs/paintObject"
+      },
+      "shape": {
+        "type": "string"
+      },
+      "margin": {
+        "oneOf": [
+          {
+            "type": "number",
+            "minimum": 0
+          },
+          {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4,
+            "items": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        ]
+      }
+    }
+  }
+}

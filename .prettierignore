@@ -1,0 +1,6 @@
+dist/
+render/
+coverage/
+node_modules/
+*.tgz
+package-lock.json

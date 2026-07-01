@@ -1,0 +1,97 @@
+{
+  "name": "deckspec",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "JSON-first slide deck specs, validation, and PPTX rendering.",
+  "bin": {
+    "deckspec": "dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./schemas/deck.schema.json": "./schemas/deck.schema.json",
+    "./schemas/layout.schema.json": "./schemas/layout.schema.json",
+    "./schemas/styles.schema.json": "./schemas/styles.schema.json",
+    "./schemas/template.schema.json": "./schemas/template.schema.json",
+    "./schemas/theme.schema.json": "./schemas/theme.schema.json"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.js.map",
+    "dist/**/*.d.ts",
+    "schemas/**/*.json",
+    "templates/**/*.json",
+    "examples/shared/**",
+    "examples/framework-smoke/deck.source.json",
+    "examples/feature-gallery/**",
+    "examples/feature-gallery-light/**",
+    "docs/**/*.md",
+    "README.md",
+    "CHANGELOG.md",
+    "AGENTS.md"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "clean:dist": "node -e \"fs.rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean:dist && tsc -p tsconfig.build.json && node -e \"fs.chmodSync('dist/cli.js',0o755)\"",
+    "prepare": "npm run build",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "coverage": "node --experimental-test-coverage --test-coverage-include=src/**/*.ts --test-coverage-exclude=src/cli.ts --test-coverage-exclude=src/render.ts --test-coverage-lines=88 --test-coverage-branches=60 --test-coverage-functions=85 --import tsx --test tests/*.test.ts",
+    "smoke": "tsx src/cli.ts smoke examples/framework-smoke/deck.source.json --render",
+    "smoke:gallery": "tsx src/cli.ts smoke examples/feature-gallery/deck.source.json --render --outDir dist/feature-gallery",
+    "smoke:gallery:light": "tsx src/cli.ts smoke examples/feature-gallery-light/deck.source.json --render --outDir dist/feature-gallery-light",
+    "pack:dry": "npm pack --dry-run",
+    "verify": "npm run format:check && npm run lint && npm run typecheck && npm run coverage && npm run build && npm run smoke && npm run smoke:gallery && npm run smoke:gallery:light",
+    "verify:release": "npm run verify && npm run pack:dry",
+    "publish:dry": "npm publish --dry-run --access public",
+    "prepublishOnly": "npm run verify:release"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "jszip": "^3.10.1",
+    "pptxgenjs": "^4.0.1",
+    "sharp": "^0.35.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.0.1",
+    "eslint": "^10.6.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.9.4",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "license": "MIT",
+  "keywords": [
+    "slides",
+    "pptx",
+    "presentation",
+    "deckspec",
+    "json",
+    "typescript",
+    "qa"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leehack/deckspec.git"
+  },
+  "homepage": "https://github.com/leehack/deckspec#readme",
+  "bugs": {
+    "url": "https://github.com/leehack/deckspec/issues"
+  }
+}

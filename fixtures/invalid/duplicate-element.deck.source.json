@@ -1,0 +1,16 @@
+{
+  "deckId": "invalid-duplicate",
+  "template": "hybrid-keynote",
+  "theme": "dark",
+  "size": { "w": 1920, "h": 1080 },
+  "slides": [
+    {
+      "id": "s01",
+      "layout": "split-hero",
+      "elements": [
+        { "id": "title", "type": "text", "slot": "title", "style": "text.display", "text": "One" },
+        { "id": "title", "type": "text", "slot": "body", "style": "text.body", "text": "Two" }
+      ]
+    }
+  ]
+}

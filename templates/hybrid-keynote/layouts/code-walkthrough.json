@@ -1,0 +1,16 @@
+{
+  "layoutId": "code-walkthrough",
+  "description": "Title plus code panel and explanatory callout.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 120, "y": 92, "w": 760, "h": 40 },
+    "title": { "x": 120, "y": 150, "w": 1380, "h": 135 },
+    "body": { "x": 124, "y": 305, "w": 980, "h": 80 },
+    "codePanel": { "x": 120, "y": 440, "w": 1140, "h": 420 },
+    "codeText": { "x": 170, "y": 500, "w": 1040, "h": 300 },
+    "calloutCard": { "x": 1320, "y": 450, "w": 480, "h": 390 },
+    "calloutTitle": { "x": 1360, "y": 500, "w": 380, "h": 95 },
+    "calloutBody": { "x": 1360, "y": 645, "w": 380, "h": 150 },
+    "footer": { "x": 124, "y": 930, "w": 1120, "h": 42 }
+  }
+}

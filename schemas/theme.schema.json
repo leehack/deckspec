@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/leehack/deckspec/v0.1.0/schemas/theme.schema.json",
+  "title": "DeckSpec Theme",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["themeId", "colors", "fonts"],
+  "properties": {
+    "themeId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "colors": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^#?[0-9A-Fa-f]{6}$"
+      }
+    },
+    "fonts": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

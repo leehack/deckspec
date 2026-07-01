@@ -1,0 +1,17 @@
+{
+  "layoutId": "comparison",
+  "description": "Two-card comparison with shared title/body lead-in.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 120, "y": 92, "w": 760, "h": 40 },
+    "title": { "x": 120, "y": 150, "w": 1380, "h": 150 },
+    "body": { "x": 124, "y": 330, "w": 1120, "h": 90 },
+    "leftCard": { "x": 120, "y": 480, "w": 760, "h": 380 },
+    "leftTitle": { "x": 180, "y": 545, "w": 640, "h": 70 },
+    "leftBody": { "x": 180, "y": 650, "w": 640, "h": 130 },
+    "rightCard": { "x": 1040, "y": 480, "w": 760, "h": 380 },
+    "rightTitle": { "x": 1100, "y": 545, "w": 640, "h": 70 },
+    "rightBody": { "x": 1100, "y": 650, "w": 640, "h": 130 },
+    "footer": { "x": 124, "y": 930, "w": 1120, "h": 42 }
+  }
+}

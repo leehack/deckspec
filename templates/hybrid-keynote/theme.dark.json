@@ -1,0 +1,21 @@
+{
+  "themeId": "dark",
+  "colors": {
+    "bg": "07111F",
+    "surface": "0B1729",
+    "surface2": "0E2037",
+    "text": "F8FAFC",
+    "muted": "E2E8F0",
+    "dim": "7D8CA3",
+    "line": "3B5E86",
+    "accent": "67D8FF",
+    "accent2": "A78BFA",
+    "good": "34D399",
+    "warn": "FDBA74"
+  },
+  "fonts": {
+    "heading": "Open Sans",
+    "body": "Open Sans",
+    "mono": "Roboto Mono"
+  }
+}

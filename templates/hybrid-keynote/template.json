@@ -1,0 +1,11 @@
+{
+  "templateId": "hybrid-keynote",
+  "description": "Dark/light keynote-style technical deck template pack.",
+  "size": { "w": 1920, "h": 1080 },
+  "themes": {
+    "dark": "theme.dark.json",
+    "light": "theme.light.json"
+  },
+  "styles": "styles.json",
+  "layoutsDir": "layouts"
+}

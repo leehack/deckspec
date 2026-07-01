@@ -1,0 +1,367 @@
+{
+  "deckId": "feature-gallery-light",
+  "title": "DeckSpec Light Theme Render Gallery",
+  "template": "hybrid-keynote",
+  "theme": "light",
+  "size": {
+    "w": 1920,
+    "h": 1080
+  },
+  "meta": {
+    "author": "DeckSpec Demo",
+    "company": "npmjs.com/package/deckspec",
+    "subject": "DeckSpec light theme rendered coverage",
+    "lang": "en-US"
+  },
+  "sections": [
+    {
+      "title": "Light Gallery",
+      "order": 1
+    }
+  ],
+  "slideMasters": [
+    {
+      "title": "light-master",
+      "background": {
+        "color": "{colors.bg}"
+      },
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "0B1220",
+        "fontSize": 16,
+        "bold": true
+      }
+    }
+  ],
+  "slides": [
+    {
+      "id": "fl-01-cover",
+      "layout": "section-break",
+      "sectionTitle": "Light Gallery",
+      "masterName": "light-master",
+      "notes": "Light gallery cover verifies light theme token rendering.",
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "0B1220",
+        "fontSize": 16,
+        "bold": true
+      },
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "LIGHT THEME",
+          "x": 120,
+          "y": 120,
+          "w": 760,
+          "h": 44,
+          "fontSize": 24,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Light mode is a first-class rendered path.",
+          "x": 120,
+          "y": 300,
+          "w": 1280,
+          "h": 180,
+          "fontSize": 52,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "The same deterministic pipeline validates light theme contrast, surfaces, charts, and images.",
+          "x": 124,
+          "y": 610,
+          "w": 1180,
+          "h": 115,
+          "fontSize": 28,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Light theme smoke prevents dark-only assumptions.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 21,
+          "color": "{colors.accent}",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fl-02-table-chart",
+      "layout": "split-hero",
+      "sectionTitle": "Light Gallery",
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "LIGHT DATA",
+          "x": 120,
+          "y": 110,
+          "w": 760,
+          "h": 40,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Tables and charts stay legible on light surfaces.",
+          "x": 120,
+          "y": 190,
+          "w": 1320,
+          "h": 145,
+          "fontSize": 42,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Light tokens use darker axis text, stronger borders, and high-contrast fills.",
+          "x": 120,
+          "y": 370,
+          "w": 1180,
+          "h": 110,
+          "fontSize": 23,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "lightTable",
+          "type": "table",
+          "x": 170,
+          "y": 540,
+          "w": 650,
+          "h": 300,
+          "rows": [
+            [
+              {
+                "text": "Layer",
+                "options": {
+                  "bold": true,
+                  "color": "FFFFFF",
+                  "fill": "{colors.accent}"
+                }
+              },
+              {
+                "text": "Status",
+                "options": {
+                  "bold": true,
+                  "color": "FFFFFF",
+                  "fill": "{colors.accent}"
+                }
+              }
+            ],
+            ["Schema", "PASS"],
+            ["Render", "PASS"],
+            ["Dogfood", "PASS"]
+          ],
+          "options": {
+            "border": {
+              "color": "{colors.line}",
+              "width": 1
+            },
+            "margin": 0.05,
+            "fontSize": 16,
+            "color": "{colors.text}",
+            "fill": "{colors.surface}"
+          }
+        },
+        {
+          "id": "lightChart",
+          "type": "chart",
+          "x": 980,
+          "y": 535,
+          "w": 650,
+          "h": 320,
+          "chartType": "bar",
+          "data": [
+            {
+              "name": "Evidence",
+              "labels": ["Tests", "Render", "QA"],
+              "values": [93, 90, 96]
+            }
+          ],
+          "chartColors": ["{colors.accent}", "{colors.good}", "{colors.warn}"],
+          "options": {
+            "showLegend": false,
+            "showValue": false,
+            "catAxisLabelColor": "{colors.text}",
+            "valAxisLabelColor": "{colors.muted}",
+            "catAxisLabelFontSize": 12,
+            "valAxisLabelFontSize": 12
+          }
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Light table/chart rendering is included in verify, not a manual screenshot.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 21,
+          "color": "{colors.accent}",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ],
+      "masterName": "light-master",
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "0B1220",
+        "fontSize": 16,
+        "bold": true
+      }
+    },
+    {
+      "id": "fl-03-image-native",
+      "layout": "split-hero",
+      "sectionTitle": "Light Gallery",
+      "masterName": "light-master",
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "0B1220",
+        "fontSize": 16,
+        "bold": true
+      },
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "LIGHT IMAGE / NATIVE",
+          "x": 120,
+          "y": 85,
+          "w": 860,
+          "h": 36,
+          "fontSize": 20,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Native options and images remain visible in light mode.",
+          "x": 120,
+          "y": 225,
+          "w": 1040,
+          "h": 150,
+          "fontSize": 36,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Image containment, slide numbers, master references, and objectName nativeOptions are checked under light tokens.",
+          "x": 120,
+          "y": 470,
+          "w": 1000,
+          "h": 100,
+          "fontSize": 20,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "qrFrame",
+          "type": "shape",
+          "x": 1280,
+          "y": 430,
+          "w": 330,
+          "h": 330,
+          "shape": "rect",
+          "fill": {
+            "color": "FFFFFF"
+          },
+          "line": {
+            "color": "{colors.accent}",
+            "width": 2
+          }
+        },
+        {
+          "id": "lightQr",
+          "type": "image",
+          "imagePath": "examples/shared/demo-qr.png",
+          "x": 1315,
+          "y": 465,
+          "w": 260,
+          "h": 260,
+          "sizing": {
+            "type": "contain",
+            "x": 1315,
+            "y": 465,
+            "w": 260,
+            "h": 260
+          },
+          "altText": "Light QR image",
+          "nativeOptions": {
+            "objectName": "light-image-proof"
+          }
+        },
+        {
+          "id": "nativeCard",
+          "type": "shape",
+          "x": 260,
+          "y": 720,
+          "w": 560,
+          "h": 160,
+          "shape": "roundRect",
+          "fill": {
+            "color": "{colors.surface2}"
+          },
+          "line": {
+            "color": "{colors.good}",
+            "width": 2
+          },
+          "rectRadius": 20
+        },
+        {
+          "id": "nativeText",
+          "type": "text",
+          "text": "safe nativeOptions + light tokens",
+          "x": 310,
+          "y": 760,
+          "w": 460,
+          "h": 70,
+          "fontSize": 19,
+          "bold": true,
+          "color": "{colors.text}",
+          "align": "center",
+          "nativeOptions": {
+            "objectName": "light-native-text-proof"
+          }
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Light mode is rendered through the same smoke command family.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 21,
+          "color": "{colors.accent}",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ]
+    }
+  ]
+}

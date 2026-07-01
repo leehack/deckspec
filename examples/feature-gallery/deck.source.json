@@ -1,0 +1,1506 @@
+{
+  "deckId": "feature-gallery",
+  "title": "DeckSpec PptxGenJS Feature Gallery",
+  "template": "hybrid-keynote",
+  "theme": "dark",
+  "size": {
+    "w": 1920,
+    "h": 1080
+  },
+  "meta": {
+    "author": "DeckSpec Demo",
+    "company": "npmjs.com/package/deckspec",
+    "subject": "DeckSpec rendered feature coverage",
+    "lang": "en-US"
+  },
+  "nativeOptions": {
+    "subject": "Feature gallery nativeOptions proof"
+  },
+  "sections": [
+    {
+      "title": "Feature Gallery",
+      "order": 1
+    },
+    {
+      "title": "Rendered Surfaces",
+      "order": 2
+    }
+  ],
+  "slideMasters": [
+    {
+      "title": "feature-master",
+      "background": {
+        "color": "{colors.bg}"
+      },
+      "slideNumber": {
+        "x": 12.2,
+        "y": 7.05,
+        "color": "{colors.dim}",
+        "fontSize": 8
+      }
+    }
+  ],
+  "slides": [
+    {
+      "id": "fg-01-overview",
+      "layout": "section-break",
+      "sectionTitle": "Feature Gallery",
+      "masterName": "feature-master",
+      "notes": "Feature gallery proves DeckSpec rendered support surfaces.",
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "F8FAFC",
+        "fontSize": 16,
+        "bold": true
+      },
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "FEATURE GALLERY",
+          "x": 120,
+          "y": 120,
+          "w": 760,
+          "h": 44,
+          "fontSize": 24,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Rendered coverage, not just schema coverage.",
+          "x": 120,
+          "y": 310,
+          "w": 1280,
+          "h": 180,
+          "fontSize": 52,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Every practical authoring family is exercised through a real PPTX \u2192 PDF \u2192 PNG smoke path.",
+          "x": 124,
+          "y": 640,
+          "w": 1160,
+          "h": 115,
+          "fontSize": 28,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "numberPill",
+          "type": "shape",
+          "x": 1430,
+          "y": 390,
+          "w": 260,
+          "h": 110,
+          "shape": "roundRect",
+          "fill": {
+            "color": "{colors.accent}"
+          },
+          "line": {
+            "color": "{colors.accent}"
+          },
+          "rectRadius": 28
+        },
+        {
+          "id": "numberText",
+          "type": "text",
+          "text": "01",
+          "x": 1488,
+          "y": 420,
+          "w": 150,
+          "h": 70,
+          "fontSize": 28,
+          "bold": true,
+          "color": "{colors.bg}",
+          "align": "center"
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Deck, slide, element, template, QA, and render surfaces are all exercised.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 16,
+          "color": "E2E8F0",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fg-02-text",
+      "layout": "split-hero",
+      "sectionTitle": "Rendered Surfaces",
+      "notes": "Rich text and hyperlink proof.",
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "TEXT / RICH RUNS",
+          "x": 120,
+          "y": 110,
+          "w": 760,
+          "h": 40,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "runs": [
+            {
+              "text": "Rich text ",
+              "options": {
+                "bold": true,
+                "color": "{colors.text}"
+              }
+            },
+            {
+              "text": "runs",
+              "options": {
+                "bold": true,
+                "italic": true,
+                "color": "{colors.accent}"
+              }
+            },
+            {
+              "text": " stay native.",
+              "options": {
+                "bold": true,
+                "color": "{colors.text}"
+              }
+            }
+          ],
+          "x": 120,
+          "y": 190,
+          "w": 920,
+          "h": 160,
+          "fontSize": 44,
+          "nativeOptions": {
+            "objectName": "rich-runs-proof"
+          }
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Hyperlinks, alignment, fit, underline, and rich-run options are normalized and written by PptxGenJS.",
+          "x": 120,
+          "y": 385,
+          "w": 960,
+          "h": 130,
+          "fontSize": 24,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "linkCard",
+          "type": "shape",
+          "x": 1175,
+          "y": 250,
+          "w": 555,
+          "h": 250,
+          "shape": "roundRect",
+          "fill": {
+            "color": "{colors.surface}"
+          },
+          "line": {
+            "color": "{colors.line}",
+            "width": 2
+          },
+          "rectRadius": 24
+        },
+        {
+          "id": "linkTitle",
+          "type": "text",
+          "text": "Hyperlink text",
+          "x": 1225,
+          "y": 292,
+          "w": 455,
+          "h": 58,
+          "fontSize": 25,
+          "bold": true,
+          "color": "{colors.text}",
+          "align": "center",
+          "hyperlink": {
+            "url": "https://www.npmjs.com/package/deckspec",
+            "tooltip": "Open npmjs.com/package/deckspec"
+          },
+          "underline": true,
+          "nativeOptions": {
+            "objectName": "hyperlink-proof"
+          }
+        },
+        {
+          "id": "linkBody",
+          "type": "text",
+          "text": "Native tooltip + URL are in the PPTX object model.",
+          "x": 1235,
+          "y": 370,
+          "w": 430,
+          "h": 80,
+          "fontSize": 18,
+          "color": "{colors.muted}",
+          "align": "center"
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Text, rich text runs, hyperlink, underline, align, and objectName pass-through.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 16,
+          "color": "E2E8F0",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ],
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "F8FAFC",
+        "fontSize": 16,
+        "bold": true
+      }
+    },
+    {
+      "id": "fg-03-shapes-lines",
+      "layout": "split-hero",
+      "sectionTitle": "Rendered Surfaces",
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "SHAPES / LINES",
+          "x": 120,
+          "y": 110,
+          "w": 760,
+          "h": 40,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Geometry primitives remain deterministic.",
+          "x": 120,
+          "y": 190,
+          "w": 1320,
+          "h": 160,
+          "fontSize": 44,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Shapes, connectors, fill, line, shadow, rotation, and z-order all pass through normalized geometry.",
+          "x": 120,
+          "y": 385,
+          "w": 980,
+          "h": 130,
+          "fontSize": 24,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "nodeA",
+          "type": "shape",
+          "x": 250,
+          "y": 560,
+          "w": 330,
+          "h": 150,
+          "shape": "roundRect",
+          "fill": {
+            "color": "{colors.surface2}"
+          },
+          "line": {
+            "color": "{colors.accent}",
+            "width": 3
+          },
+          "shadow": {
+            "type": "outer",
+            "color": "000000",
+            "opacity": 0.25,
+            "blur": 2,
+            "angle": 45,
+            "distance": 2
+          },
+          "rectRadius": 24
+        },
+        {
+          "id": "nodeAText",
+          "type": "text",
+          "text": "Shape",
+          "x": 290,
+          "y": 610,
+          "w": 250,
+          "h": 62,
+          "fontSize": 25,
+          "bold": true,
+          "color": "{colors.text}",
+          "align": "center"
+        },
+        {
+          "id": "nodeB",
+          "type": "shape",
+          "x": 780,
+          "y": 560,
+          "w": 330,
+          "h": 150,
+          "shape": "roundRect",
+          "fill": {
+            "color": "{colors.surface2}"
+          },
+          "line": {
+            "color": "{colors.good}",
+            "width": 3
+          },
+          "rectRadius": 24
+        },
+        {
+          "id": "nodeBText",
+          "type": "text",
+          "text": "Line",
+          "x": 820,
+          "y": 610,
+          "w": 250,
+          "h": 62,
+          "fontSize": 25,
+          "bold": true,
+          "color": "{colors.text}",
+          "align": "center"
+        },
+        {
+          "id": "connector",
+          "type": "line",
+          "x1": 580,
+          "y1": 635,
+          "x2": 780,
+          "y2": 650,
+          "line": {
+            "color": "{colors.accent}",
+            "width": 4,
+            "beginArrowType": "none",
+            "endArrowType": "triangle"
+          }
+        },
+        {
+          "id": "diamond",
+          "type": "shape",
+          "x": 1280,
+          "y": 535,
+          "w": 180,
+          "h": 180,
+          "shape": "diamond",
+          "fill": {
+            "color": "{colors.accent2}",
+            "transparency": 10
+          },
+          "line": {
+            "color": "{colors.text}",
+            "width": 1
+          },
+          "rotate": 8
+        },
+        {
+          "id": "diamondText",
+          "type": "text",
+          "text": "rotate",
+          "x": 1260,
+          "y": 735,
+          "w": 230,
+          "h": 46,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.text}",
+          "align": "center"
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Shapes and connectors are layout-QA-able primitives, not raw diagram blobs.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 16,
+          "color": "E2E8F0",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ],
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "F8FAFC",
+        "fontSize": 16,
+        "bold": true
+      }
+    },
+    {
+      "id": "fg-04-images",
+      "layout": "split-hero",
+      "sectionTitle": "Rendered Surfaces",
+      "backgroundImage": "examples/shared/demo-qr.png",
+      "backgroundTransparency": 88,
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "IMAGES / BACKGROUNDS",
+          "x": 120,
+          "y": 110,
+          "w": 820,
+          "h": 40,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Path, data, sizing, and background images render.",
+          "x": 120,
+          "y": 185,
+          "w": 980,
+          "h": 230,
+          "fontSize": 37,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Image sources cover file paths and base64 data; sizing is converted from pixels to inches before PptxGenJS sees it.",
+          "x": 120,
+          "y": 505,
+          "w": 920,
+          "h": 115,
+          "fontSize": 21,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "qrFrame",
+          "type": "shape",
+          "x": 1270,
+          "y": 410,
+          "w": 330,
+          "h": 330,
+          "shape": "rect",
+          "fill": {
+            "color": "FFFFFF"
+          },
+          "line": {
+            "color": "{colors.accent}",
+            "width": 2
+          }
+        },
+        {
+          "id": "qrPath",
+          "type": "image",
+          "imagePath": "examples/shared/demo-qr.png",
+          "x": 1305,
+          "y": 445,
+          "w": 260,
+          "h": 260,
+          "altText": "QR path image",
+          "nativeOptions": {
+            "objectName": "image-path-proof"
+          },
+          "sizing": {
+            "type": "contain",
+            "x": 1305,
+            "y": 445,
+            "w": 260,
+            "h": 260
+          }
+        },
+        {
+          "id": "dataFrame",
+          "type": "shape",
+          "x": 245,
+          "y": 680,
+          "w": 220,
+          "h": 220,
+          "shape": "rect",
+          "fill": {
+            "color": "FFFFFF"
+          },
+          "line": {
+            "color": "{colors.line}",
+            "width": 2
+          }
+        },
+        {
+          "id": "qrData",
+          "type": "image",
+          "imageData": "image/png;base64,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",
+          "x": 275,
+          "y": 710,
+          "w": 160,
+          "h": 160,
+          "altText": "QR data image"
+        },
+        {
+          "id": "dataLabel",
+          "type": "text",
+          "text": "imageData",
+          "x": 550,
+          "y": 770,
+          "w": 420,
+          "h": 50,
+          "fontSize": 23,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Background image + imagePath + imageData + contain sizing all go through render QA.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 16,
+          "color": "E2E8F0",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ],
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "F8FAFC",
+        "fontSize": 16,
+        "bold": true
+      }
+    },
+    {
+      "id": "fg-05-tables",
+      "layout": "split-hero",
+      "sectionTitle": "Rendered Surfaces",
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "TABLES",
+          "x": 120,
+          "y": 110,
+          "w": 760,
+          "h": 40,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Tables carry cell styles and layout constraints.",
+          "x": 120,
+          "y": 190,
+          "w": 1320,
+          "h": 160,
+          "fontSize": 44,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Rows, cells, borders, fills, margins, and font options are rendered through addTable.",
+          "x": 120,
+          "y": 385,
+          "w": 960,
+          "h": 95,
+          "fontSize": 23,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "table",
+          "type": "table",
+          "x": 180,
+          "y": 525,
+          "w": 1120,
+          "h": 300,
+          "rows": [
+            [
+              {
+                "text": "Feature",
+                "options": {
+                  "bold": true,
+                  "color": "{colors.bg}",
+                  "fill": "{colors.accent}"
+                }
+              },
+              {
+                "text": "Evidence",
+                "options": {
+                  "bold": true,
+                  "color": "{colors.bg}",
+                  "fill": "{colors.accent}"
+                }
+              }
+            ],
+            [
+              {
+                "text": "Schema",
+                "options": {
+                  "bold": true
+                }
+              },
+              "Draft 2020-12 + semantic validation"
+            ],
+            [
+              {
+                "text": "Render",
+                "options": {
+                  "bold": true
+                }
+              },
+              "PPTX \u2192 PDF \u2192 PNG contact sheet"
+            ],
+            [
+              {
+                "text": "Safety",
+                "options": {
+                  "bold": true
+                }
+              },
+              "Native options sanitized before assignment"
+            ]
+          ],
+          "options": {
+            "border": {
+              "color": "{colors.line}",
+              "width": 1
+            },
+            "margin": 0.12,
+            "fontSize": 17,
+            "color": "{colors.text}",
+            "fill": "{colors.surface}",
+            "valign": "mid"
+          }
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Dedicated rendered table slide validates borders, fills, margins, and cell text.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 16,
+          "color": "E2E8F0",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ],
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "F8FAFC",
+        "fontSize": 16,
+        "bold": true
+      }
+    },
+    {
+      "id": "fg-06-charts",
+      "layout": "split-hero",
+      "sectionTitle": "Rendered Surfaces",
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "CHARTS",
+          "x": 120,
+          "y": 110,
+          "w": 760,
+          "h": 40,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Charts render with token-resolved native styling.",
+          "x": 120,
+          "y": 190,
+          "w": 1320,
+          "h": 160,
+          "fontSize": 44,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Chart colors, axes, gridlines, and labels are validated for template tokens before build.",
+          "x": 120,
+          "y": 385,
+          "w": 980,
+          "h": 95,
+          "fontSize": 23,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "barChart",
+          "type": "chart",
+          "x": 170,
+          "y": 565,
+          "w": 690,
+          "h": 320,
+          "chartType": "bar",
+          "data": [
+            {
+              "name": "Coverage",
+              "labels": ["Schema", "QA", "Render"],
+              "values": [96, 92, 90]
+            }
+          ],
+          "chartColors": ["{colors.accent}", "{colors.good}", "{colors.warn}"],
+          "valGridLine": {
+            "color": "{colors.line}",
+            "transparency": 40
+          },
+          "options": {
+            "showLegend": false,
+            "showValue": false,
+            "catAxisLabelColor": "F8FAFC",
+            "valAxisLabelColor": "{colors.muted}",
+            "catAxisLabelFontSize": 13,
+            "valAxisLabelFontSize": 8,
+            "valAxisMajorUnit": 25,
+            "valAxisLabelPos": "none",
+            "valGridLine": {
+              "color": "3B5E86",
+              "transparency": 55
+            }
+          }
+        },
+        {
+          "id": "lineChart",
+          "type": "chart",
+          "x": 1010,
+          "y": 565,
+          "w": 690,
+          "h": 320,
+          "chartType": "line",
+          "data": [
+            {
+              "name": "Confidence",
+              "labels": ["Types", "Tests", "Render", "Dogfood"],
+              "values": [80, 88, 92, 95]
+            }
+          ],
+          "chartColors": ["{colors.good}"],
+          "options": {
+            "showLegend": false,
+            "showValue": false,
+            "catAxisLabelColor": "F8FAFC",
+            "valAxisLabelColor": "{colors.muted}",
+            "catAxisLabelFontSize": 13,
+            "valAxisLabelFontSize": 8,
+            "valAxisMajorUnit": 25,
+            "valAxisLabelPos": "none",
+            "valGridLine": {
+              "color": "3B5E86",
+              "transparency": 55
+            }
+          },
+          "nativeOptions": {
+            "objectName": "line-chart-proof"
+          }
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Multiple chart families and promoted chart fields are exercised in rendered output.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 16,
+          "color": "E2E8F0",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ],
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "F8FAFC",
+        "fontSize": 16,
+        "bold": true
+      }
+    },
+    {
+      "id": "fg-07-native-media",
+      "layout": "split-hero",
+      "sectionTitle": "Rendered Surfaces",
+      "masterName": "feature-master",
+      "color": "{colors.text}",
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "F8FAFC",
+        "fontSize": 16,
+        "bold": true
+      },
+      "nativeOptions": {
+        "background": {
+          "color": "{colors.bg}"
+        }
+      },
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "NATIVE / MEDIA",
+          "x": 120,
+          "y": 110,
+          "w": 760,
+          "h": 40,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Native pass-through is constrained, not blind.",
+          "x": 120,
+          "y": 190,
+          "w": 1320,
+          "h": 160,
+          "fontSize": 44,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Media, slide masters, slide numbers, sections, and object-level nativeOptions build without bypassing token or safety validation.",
+          "x": 120,
+          "y": 385,
+          "w": 1120,
+          "h": 130,
+          "fontSize": 24,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "mediaShell",
+          "type": "shape",
+          "x": 230,
+          "y": 540,
+          "w": 520,
+          "h": 275,
+          "shape": "roundRect",
+          "fill": {
+            "color": "{colors.surface}"
+          },
+          "line": {
+            "color": "{colors.accent}",
+            "width": 2
+          },
+          "rectRadius": 24
+        },
+        {
+          "id": "mediaTitle",
+          "type": "text",
+          "text": "Online media object",
+          "x": 265,
+          "y": 590,
+          "w": 450,
+          "h": 44,
+          "fontSize": 21,
+          "bold": true,
+          "color": "{colors.text}",
+          "align": "center"
+        },
+        {
+          "id": "mediaBody",
+          "type": "text",
+          "text": "Link is represented in PPTX; playback depends on host app.",
+          "x": 280,
+          "y": 690,
+          "w": 420,
+          "h": 95,
+          "fontSize": 16,
+          "color": "{colors.muted}",
+          "align": "center"
+        },
+        {
+          "id": "onlineMedia",
+          "type": "media",
+          "x": 830,
+          "y": 570,
+          "w": 520,
+          "h": 290,
+          "mediaType": "online",
+          "link": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          "nativeOptions": {
+            "objectName": "online-media-proof"
+          }
+        },
+        {
+          "id": "nativeCard",
+          "type": "shape",
+          "x": 1420,
+          "y": 560,
+          "w": 300,
+          "h": 230,
+          "shape": "roundRect",
+          "fill": {
+            "color": "{colors.surface2}"
+          },
+          "line": {
+            "color": "{colors.good}",
+            "width": 2
+          },
+          "rectRadius": 24
+        },
+        {
+          "id": "nativeLabel",
+          "type": "text",
+          "text": "safe native opts",
+          "x": 1438,
+          "y": 635,
+          "w": 264,
+          "h": 60,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.text}",
+          "align": "center"
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Unsafe keys are rejected; safe native fields remain available for advanced PptxGenJS options.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 16,
+          "color": "E2E8F0",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fg-08-chart-variants",
+      "layout": "split-hero",
+      "sectionTitle": "Rendered Surfaces",
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "CHART VARIANTS",
+          "x": 120,
+          "y": 110,
+          "w": 760,
+          "h": 40,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Pie and area charts share the same native path.",
+          "x": 120,
+          "y": 190,
+          "w": 1320,
+          "h": 125,
+          "fontSize": 38,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "The gallery covers more than bar/line: categorical pie and trend area charts render through addChart.",
+          "x": 120,
+          "y": 410,
+          "w": 1120,
+          "h": 75,
+          "fontSize": 21,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "pieChart",
+          "type": "chart",
+          "x": 210,
+          "y": 585,
+          "w": 520,
+          "h": 270,
+          "chartType": "pie",
+          "data": [
+            {
+              "name": "Surface",
+              "labels": ["DSL", "Native", "QA"],
+              "values": [55, 25, 20]
+            }
+          ],
+          "chartColors": ["{colors.accent}", "{colors.good}", "{colors.warn}"],
+          "options": {
+            "showLegend": false,
+            "showValue": false,
+            "legendPos": "r",
+            "dataLabelPosition": "bestFit",
+            "catAxisLabelColor": "{colors.text}",
+            "legendColor": "{colors.text}",
+            "legendFontSize": 13,
+            "legendFontFace": "{fonts.body}"
+          },
+          "nativeOptions": {
+            "objectName": "pie-chart-proof"
+          }
+        },
+        {
+          "id": "areaChart",
+          "type": "chart",
+          "x": 970,
+          "y": 585,
+          "w": 700,
+          "h": 270,
+          "chartType": "area",
+          "data": [
+            {
+              "name": "Coverage",
+              "labels": ["Schema", "Tests", "Render", "Dogfood"],
+              "values": [70, 84, 92, 96]
+            }
+          ],
+          "chartColors": ["{colors.accent2}"],
+          "valGridLine": {
+            "color": "{colors.line}",
+            "transparency": 45
+          },
+          "options": {
+            "showLegend": false,
+            "showValue": false,
+            "catAxisLabelColor": "F8FAFC",
+            "valAxisLabelColor": "{colors.muted}",
+            "catAxisLabelFontSize": 13,
+            "valAxisLabelFontSize": 8,
+            "valAxisMajorUnit": 25,
+            "valAxisLabelPos": "none",
+            "valGridLine": {
+              "color": "3B5E86",
+              "transparency": 60
+            }
+          },
+          "nativeOptions": {
+            "objectName": "area-chart-proof"
+          }
+        },
+        {
+          "id": "pieLegendQ",
+          "type": "shape",
+          "shape": "rect",
+          "x": 765,
+          "y": 610,
+          "w": 24,
+          "h": 24,
+          "fill": {
+            "color": "67D8FF"
+          },
+          "line": {
+            "color": "67D8FF",
+            "transparency": 100
+          }
+        },
+        {
+          "id": "pieLegendQText",
+          "type": "text",
+          "text": "Quality",
+          "style": "text.small",
+          "x": 805,
+          "y": 598,
+          "w": 150,
+          "h": 44,
+          "fontSize": 17,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "pieLegendS",
+          "type": "shape",
+          "shape": "rect",
+          "x": 765,
+          "y": 680,
+          "w": 24,
+          "h": 24,
+          "fill": {
+            "color": "34D399"
+          },
+          "line": {
+            "color": "34D399",
+            "transparency": 100
+          }
+        },
+        {
+          "id": "pieLegendSText",
+          "type": "text",
+          "text": "Speed",
+          "style": "text.small",
+          "x": 805,
+          "y": 668,
+          "w": 150,
+          "h": 44,
+          "fontSize": 17,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "pieLegendC",
+          "type": "shape",
+          "shape": "rect",
+          "x": 765,
+          "y": 750,
+          "w": 24,
+          "h": 24,
+          "fill": {
+            "color": "F59E0B"
+          },
+          "line": {
+            "color": "F59E0B",
+            "transparency": 100
+          }
+        },
+        {
+          "id": "pieLegendCText",
+          "type": "text",
+          "text": "Control",
+          "style": "text.small",
+          "x": 805,
+          "y": 738,
+          "w": 150,
+          "h": 44,
+          "fontSize": 17,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Additional chart families are rendered, not only accepted by schema.",
+          "x": 120,
+          "y": 940,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 16,
+          "color": "E2E8F0",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ],
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "F8FAFC",
+        "fontSize": 16,
+        "bold": true
+      }
+    },
+    {
+      "id": "fg-09-master-notes-table",
+      "layout": "split-hero",
+      "sectionTitle": "Rendered Surfaces",
+      "masterName": "feature-master",
+      "notes": "This slide validates speaker notes together with master references and advanced table options.",
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "F8FAFC",
+        "fontSize": 16,
+        "bold": true
+      },
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "MASTERS / NOTES / TABLES",
+          "x": 120,
+          "y": 110,
+          "w": 900,
+          "h": 40,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Slide masters and notes are observable build outputs.",
+          "x": 120,
+          "y": 190,
+          "w": 1320,
+          "h": 145,
+          "fontSize": 42,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Master references, speaker notes, repeated headers, column widths, row heights, and cell styling are included in the smoke path.",
+          "x": 120,
+          "y": 370,
+          "w": 1180,
+          "h": 115,
+          "fontSize": 23,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "advancedTable",
+          "type": "table",
+          "x": 165,
+          "y": 535,
+          "w": 1180,
+          "h": 330,
+          "rows": [
+            [
+              {
+                "text": "Surface",
+                "options": {
+                  "bold": true,
+                  "color": "{colors.bg}",
+                  "fill": "{colors.accent}"
+                }
+              },
+              {
+                "text": "Evidence",
+                "options": {
+                  "bold": true,
+                  "color": "{colors.bg}",
+                  "fill": "{colors.accent}"
+                }
+              },
+              {
+                "text": "Gate",
+                "options": {
+                  "bold": true,
+                  "color": "{colors.bg}",
+                  "fill": "{colors.accent}"
+                }
+              }
+            ],
+            ["Slide master", "masterName resolves to declared master", "semantic validation"],
+            ["Speaker notes", "notes XML generated", "PPTX integrity"],
+            ["Table variants", "colW + rowH + repeat header", "render smoke"]
+          ],
+          "options": {
+            "border": {
+              "color": "{colors.line}",
+              "width": 1
+            },
+            "margin": 0.12,
+            "fontSize": 16,
+            "color": "{colors.text}",
+            "fill": "{colors.surface}",
+            "valign": "mid"
+          },
+          "colW": [2.3, 4.9, 2.4],
+          "rowH": [0.42, 0.52, 0.52, 0.52],
+          "autoPageRepeatHeader": true,
+          "autoPageHeaderRows": 1,
+          "nativeOptions": {
+            "objectName": "advanced-table-proof"
+          }
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Master/notes/table-variant coverage is now explicit and regression-tested.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 16,
+          "color": "E2E8F0",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fg-10-local-media-release",
+      "layout": "split-hero",
+      "sectionTitle": "Rendered Surfaces",
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "LOCAL MEDIA / RELEASE",
+          "x": 120,
+          "y": 110,
+          "w": 900,
+          "h": 40,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "Release readiness includes package and CI evidence.",
+          "x": 120,
+          "y": 190,
+          "w": 1240,
+          "h": 125,
+          "fontSize": 38,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "A local audio file exercises media path packaging; CI installs LibreOffice/Poppler and runs the complete rendered verify gate.",
+          "x": 120,
+          "y": 440,
+          "w": 1180,
+          "h": 90,
+          "fontSize": 21,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "audioCard",
+          "type": "shape",
+          "x": 230,
+          "y": 570,
+          "w": 470,
+          "h": 250,
+          "shape": "roundRect",
+          "fill": {
+            "color": "{colors.surface}"
+          },
+          "line": {
+            "color": "{colors.accent}",
+            "width": 2
+          },
+          "rectRadius": 22
+        },
+        {
+          "id": "audioTitle",
+          "type": "text",
+          "text": "Local audio",
+          "x": 285,
+          "y": 620,
+          "w": 360,
+          "h": 42,
+          "fontSize": 23,
+          "bold": true,
+          "color": "{colors.text}",
+          "align": "center"
+        },
+        {
+          "id": "audioBody",
+          "type": "text",
+          "text": "beep.wav is packaged and passed through addMedia.",
+          "x": 285,
+          "y": 705,
+          "w": 360,
+          "h": 85,
+          "fontSize": 16,
+          "color": "{colors.muted}",
+          "align": "center"
+        },
+        {
+          "id": "localAudio",
+          "type": "media",
+          "x": 770,
+          "y": 610,
+          "w": 420,
+          "h": 190,
+          "mediaType": "audio",
+          "path": "examples/feature-gallery/assets/beep.wav",
+          "extn": "wav",
+          "nativeOptions": {
+            "objectName": "local-audio-proof"
+          }
+        },
+        {
+          "id": "ciCard",
+          "type": "shape",
+          "x": 1280,
+          "y": 550,
+          "w": 390,
+          "h": 280,
+          "shape": "roundRect",
+          "fill": {
+            "color": "{colors.surface2}"
+          },
+          "line": {
+            "color": "{colors.good}",
+            "width": 2
+          },
+          "rectRadius": 22
+        },
+        {
+          "id": "ciTitle",
+          "type": "text",
+          "text": "CI + pack",
+          "x": 1330,
+          "y": 610,
+          "w": 290,
+          "h": 45,
+          "fontSize": 23,
+          "bold": true,
+          "color": "{colors.text}",
+          "align": "center"
+        },
+        {
+          "id": "ciBody",
+          "type": "text",
+          "text": "verify and pack dry-run gate packaged releases.",
+          "x": 1330,
+          "y": 695,
+          "w": 290,
+          "h": 100,
+          "fontSize": 15,
+          "color": "{colors.muted}",
+          "align": "center"
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "text": "Local media, CI, package files, and release notes are covered by concrete checks.",
+          "x": 120,
+          "y": 930,
+          "w": 1500,
+          "h": 90,
+          "fontSize": 16,
+          "color": "E2E8F0",
+          "nativeOptions": {
+            "objectName": "footer-proof"
+          }
+        }
+      ],
+      "slideNumber": {
+        "x": 12.15,
+        "y": 6.85,
+        "color": "F8FAFC",
+        "fontSize": 16,
+        "bold": true
+      }
+    }
+  ]
+}

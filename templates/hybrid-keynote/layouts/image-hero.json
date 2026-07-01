@@ -1,0 +1,14 @@
+{
+  "layoutId": "image-hero",
+  "description": "Large contained image evidence area with left claim text.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 96, "y": 70, "w": 800, "h": 32 },
+    "title": { "x": 96, "y": 160, "w": 700, "h": 360 },
+    "body": { "x": 100, "y": 620, "w": 610, "h": 125 },
+    "imageFrame": { "x": 880, "y": 150, "w": 760, "h": 620 },
+    "image": { "x": 1000, "y": 200, "w": 520, "h": 520 },
+    "caption": { "x": 880, "y": 820, "w": 760, "h": 44 },
+    "footer": { "x": 96, "y": 980, "w": 1200, "h": 32 }
+  }
+}

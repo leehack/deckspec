@@ -1,0 +1,145 @@
+{
+  "deckId": "framework-smoke",
+  "title": "DeckSpec framework smoke deck",
+  "template": "hybrid-keynote",
+  "theme": "dark",
+  "size": { "w": 1920, "h": 1080 },
+  "slides": [
+    {
+      "id": "s01-framework-v0",
+      "layout": "split-hero",
+      "notes": "This slide explains the human-source and deterministic-build separation.",
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "slot": "eyebrow",
+          "style": "text.monoLabel",
+          "text": "FRAMEWORK V0"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "slot": "title",
+          "style": "text.display",
+          "text": "Markdown stays human. JSON builds the deck."
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "slot": "body",
+          "style": "text.body",
+          "text": "Agents can patch deterministic low-level elements while people keep discussing narrative, content, and design in Markdown."
+        },
+        { "id": "hero-card", "type": "shape", "slot": "heroCard", "style": "shape.heroCard" },
+        {
+          "id": "hero-title",
+          "type": "text",
+          "slot": "heroTitle",
+          "style": "text.slideTitle",
+          "text": "Source → Normalize → Build"
+        },
+        {
+          "id": "hero-body",
+          "type": "text",
+          "slot": "heroBody",
+          "style": "text.body",
+          "text": "The renderer only sees normalized JSON: explicit coordinates, resolved styles, stable element ids."
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "slot": "footer",
+          "style": "text.monoLabel",
+          "text": "PPTX is generated output; fixes go back to JSON/template data."
+        }
+      ]
+    },
+    {
+      "id": "s02-template-pack",
+      "layout": "three-card-row",
+      "notes": "This slide proves reusable layout slots and style tokens.",
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "slot": "eyebrow",
+          "style": "text.monoLabel",
+          "text": "TEMPLATE PACK"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "slot": "title",
+          "style": "text.slideTitle",
+          "text": "Templates are JSON design systems, not binary artifacts."
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "slot": "body",
+          "style": "text.body",
+          "text": "A template pack owns tokens, slots, styles, and reusable layout rules."
+        },
+        { "id": "card1-bg", "type": "shape", "slot": "card1", "style": "shape.card" },
+        {
+          "id": "card1-title",
+          "type": "text",
+          "slot": "card1Title",
+          "style": "text.slideTitle",
+          "fontSize": 26,
+          "text": "Theme tokens"
+        },
+        {
+          "id": "card1-body",
+          "type": "text",
+          "slot": "card1Body",
+          "style": "text.body",
+          "fontSize": 20,
+          "text": "Colors, fonts, radii, spacing, and chart accents resolve before build."
+        },
+        { "id": "card2-bg", "type": "shape", "slot": "card2", "style": "shape.card" },
+        {
+          "id": "card2-title",
+          "type": "text",
+          "slot": "card2Title",
+          "style": "text.slideTitle",
+          "fontSize": 26,
+          "text": "Layout slots"
+        },
+        {
+          "id": "card2-body",
+          "type": "text",
+          "slot": "card2Body",
+          "style": "text.body",
+          "fontSize": 20,
+          "text": "Slots keep repeated structures aligned and easy to patch."
+        },
+        { "id": "card3-bg", "type": "shape", "slot": "card3", "style": "shape.card" },
+        {
+          "id": "card3-title",
+          "type": "text",
+          "slot": "card3Title",
+          "style": "text.slideTitle",
+          "fontSize": 26,
+          "text": "QA pointers"
+        },
+        {
+          "id": "card3-body",
+          "type": "text",
+          "slot": "card3Body",
+          "style": "text.body",
+          "fontSize": 20,
+          "text": "Every issue can point back to slide id, element id, and JSON path."
+        },
+        {
+          "id": "footer",
+          "type": "text",
+          "slot": "footer",
+          "style": "text.monoLabel",
+          "text": "Next: expand layouts, rendered QA, and Markdown compiler fixtures."
+        }
+      ]
+    }
+  ]
+}

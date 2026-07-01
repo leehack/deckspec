@@ -1,0 +1,23 @@
+{
+  "deckId": "malformed",
+  "template": "hybrid-keynote",
+  "theme": "dark",
+  "size": { "w": 1920, "h": 1080 },
+  "slides": [
+    {
+      "id": "s01",
+      "layout": "split-hero",
+      "elements": [
+        {
+          "id": "bad-text",
+          "type": "text",
+          "slot": "title",
+          "style": "text.display",
+          "unexpected": true
+        }
+      ],
+      "unknownSlideField": "rejected"
+    }
+  ],
+  "unknownDeckField": "rejected"
+}

@@ -1,0 +1,14 @@
+{
+  "layoutId": "closing-qr",
+  "description": "Closing slide with CTA and QR placeholder box.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 120, "y": 110, "w": 760, "h": 40 },
+    "title": { "x": 120, "y": 250, "w": 1040, "h": 240 },
+    "body": { "x": 124, "y": 560, "w": 860, "h": 150 },
+    "qrBox": { "x": 1280, "y": 240, "w": 380, "h": 380 },
+    "qrImage": { "x": 1310, "y": 270, "w": 320, "h": 320 },
+    "url": { "x": 1250, "y": 660, "w": 440, "h": 42 },
+    "footer": { "x": 124, "y": 930, "w": 1120, "h": 42 }
+  }
+}

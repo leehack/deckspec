@@ -1,0 +1,13 @@
+{
+  "layoutId": "cover",
+  "description": "Opening title slide with assertion, subtitle, and metadata pill.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 120, "y": 110, "w": 760, "h": 40 },
+    "title": { "x": 120, "y": 230, "w": 1120, "h": 320 },
+    "body": { "x": 124, "y": 610, "w": 980, "h": 120 },
+    "badge": { "x": 124, "y": 790, "w": 620, "h": 64 },
+    "badgeText": { "x": 154, "y": 808, "w": 560, "h": 36 },
+    "footer": { "x": 124, "y": 930, "w": 1120, "h": 42 }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "text.display": {
+    "fontFace": "{fonts.heading}",
+    "fontSize": 48,
+    "bold": true,
+    "color": "{colors.text}",
+    "margin": 0
+  },
+  "text.slideTitle": {
+    "fontFace": "{fonts.heading}",
+    "fontSize": 36,
+    "bold": true,
+    "color": "{colors.text}",
+    "margin": 0
+  },
+  "text.body": {
+    "fontFace": "{fonts.body}",
+    "fontSize": 24,
+    "color": "{colors.muted}",
+    "margin": 0,
+    "breakLine": false
+  },
+  "text.small": {
+    "fontFace": "{fonts.body}",
+    "fontSize": 18,
+    "color": "{colors.muted}",
+    "margin": 0,
+    "breakLine": false
+  },
+  "text.monoLabel": {
+    "fontFace": "{fonts.mono}",
+    "fontSize": 15,
+    "bold": true,
+    "color": "{colors.muted}",
+    "margin": 0,
+    "charSpace": 0.3
+  },
+  "text.code": {
+    "fontFace": "{fonts.mono}",
+    "fontSize": 18,
+    "color": "{colors.text}",
+    "margin": 0,
+    "breakLine": false
+  },
+  "text.badge": {
+    "fontFace": "{fonts.mono}",
+    "fontSize": 15,
+    "bold": true,
+    "color": "{colors.bg}",
+    "margin": 0,
+    "charSpace": 0.3
+  },
+  "shape.card": {
+    "shape": "roundRect",
+    "fill": { "color": "{colors.surface}" },
+    "line": { "color": "{colors.line}", "width": 1.2 },
+    "rectRadius": 0.12
+  },
+  "shape.heroCard": {
+    "shape": "roundRect",
+    "fill": { "color": "{colors.surface2}", "transparency": 3 },
+    "line": { "color": "{colors.accent}", "width": 1.4 },
+    "rectRadius": 0.16
+  },
+  "shape.panel": {
+    "shape": "roundRect",
+    "fill": { "color": "{colors.surface2}" },
+    "line": { "color": "{colors.line}", "width": 1.2 },
+    "rectRadius": 0.14
+  },
+  "shape.accentPill": {
+    "shape": "roundRect",
+    "fill": { "color": "{colors.accent}", "transparency": 10 },
+    "line": { "color": "{colors.accent}", "width": 1.2 },
+    "rectRadius": 0.16
+  },
+  "shape.timelineDot": {
+    "shape": "ellipse",
+    "fill": { "color": "{colors.accent}" },
+    "line": { "color": "{colors.accent}", "width": 1 }
+  },
+  "shape.qrBox": {
+    "shape": "roundRect",
+    "fill": { "color": "FFFFFF" },
+    "line": { "color": "{colors.accent}", "width": 1.4 },
+    "rectRadius": 0.08
+  },
+  "line.timeline": {
+    "line": { "color": "{colors.line}", "width": 2 }
+  }
+}

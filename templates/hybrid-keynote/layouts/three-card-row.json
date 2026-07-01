@@ -1,0 +1,20 @@
+{
+  "layoutId": "three-card-row",
+  "description": "Assertion title plus three equal cards.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 120, "y": 92, "w": 760, "h": 40 },
+    "title": { "x": 120, "y": 150, "w": 1380, "h": 170 },
+    "body": { "x": 124, "y": 350, "w": 1060, "h": 80 },
+    "card1": { "x": 120, "y": 520, "w": 520, "h": 360 },
+    "card1Title": { "x": 170, "y": 570, "w": 420, "h": 90 },
+    "card1Body": { "x": 170, "y": 710, "w": 420, "h": 120 },
+    "card2": { "x": 700, "y": 520, "w": 520, "h": 360 },
+    "card2Title": { "x": 750, "y": 570, "w": 420, "h": 90 },
+    "card2Body": { "x": 750, "y": 710, "w": 420, "h": 120 },
+    "card3": { "x": 1280, "y": 520, "w": 520, "h": 360 },
+    "card3Title": { "x": 1330, "y": 570, "w": 420, "h": 90 },
+    "card3Body": { "x": 1330, "y": 710, "w": 420, "h": 120 },
+    "footer": { "x": 124, "y": 930, "w": 1120, "h": 42 }
+  }
+}

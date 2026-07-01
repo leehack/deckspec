@@ -1,0 +1,23 @@
+{
+  "layoutId": "metric-grid",
+  "description": "Four metric cards with a title and supporting body.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 96, "y": 70, "w": 900, "h": 32 },
+    "title": { "x": 96, "y": 126, "w": 1220, "h": 120 },
+    "body": { "x": 96, "y": 280, "w": 1120, "h": 70 },
+    "metric1Card": { "x": 110, "y": 420, "w": 390, "h": 350 },
+    "metric1Value": { "x": 150, "y": 462, "w": 310, "h": 88 },
+    "metric1Label": { "x": 150, "y": 640, "w": 310, "h": 78 },
+    "metric2Card": { "x": 540, "y": 420, "w": 390, "h": 350 },
+    "metric2Value": { "x": 580, "y": 462, "w": 310, "h": 88 },
+    "metric2Label": { "x": 580, "y": 640, "w": 310, "h": 78 },
+    "metric3Card": { "x": 970, "y": 420, "w": 390, "h": 350 },
+    "metric3Value": { "x": 1010, "y": 462, "w": 310, "h": 88 },
+    "metric3Label": { "x": 1010, "y": 640, "w": 310, "h": 78 },
+    "metric4Card": { "x": 1400, "y": 420, "w": 390, "h": 350 },
+    "metric4Value": { "x": 1440, "y": 462, "w": 310, "h": 88 },
+    "metric4Label": { "x": 1440, "y": 640, "w": 310, "h": 78 },
+    "footer": { "x": 96, "y": 980, "w": 1200, "h": 32 }
+  }
+}

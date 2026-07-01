@@ -1,0 +1,15 @@
+{
+  "layoutId": "quote",
+  "description": "Large quote or testimonial slide with attribution.",
+  "background": "{colors.bg}",
+  "slots": {
+    "eyebrow": { "x": 96, "y": 70, "w": 900, "h": 32 },
+    "quoteMark": { "x": 96, "y": 135, "w": 90, "h": 150 },
+    "quoteText": { "x": 260, "y": 160, "w": 1240, "h": 395 },
+    "attribution": { "x": 266, "y": 575, "w": 760, "h": 54 },
+    "contextCard": { "x": 1120, "y": 640, "w": 560, "h": 285 },
+    "contextTitle": { "x": 1165, "y": 675, "w": 470, "h": 62 },
+    "contextBody": { "x": 1165, "y": 800, "w": 470, "h": 80 },
+    "footer": { "x": 96, "y": 980, "w": 1200, "h": 32 }
+  }
+}

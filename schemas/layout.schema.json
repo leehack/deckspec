@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/leehack/deckspec/v0.1.0/schemas/layout.schema.json",
+  "title": "DeckSpec Layout",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["layoutId", "slots"],
+  "properties": {
+    "layoutId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "background": {
+      "type": "string",
+      "pattern": "^(#?[0-9A-Fa-f]{6}|\\{colors\\.[A-Za-z0-9_-]+\\})$"
+    },
+    "slots": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["x", "y", "w", "h"],
+        "properties": {
+          "x": {
+            "type": "number",
+            "minimum": 0
+          },
+          "y": {
+            "type": "number",
+            "minimum": 0
+          },
+          "w": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "h": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        }
+      }
+    }
+  }
+}

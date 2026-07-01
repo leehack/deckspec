@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/leehack/deckspec/v0.1.0/schemas/template.schema.json",
+  "title": "DeckSpec Template Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["templateId", "size", "themes", "styles", "layoutsDir"],
+  "properties": {
+    "templateId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "size": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["w", "h"],
+      "properties": {
+        "w": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "h": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "themes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dark", "light"],
+      "properties": {
+        "dark": {
+          "type": "string",
+          "minLength": 1
+        },
+        "light": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "styles": {
+      "type": "string",
+      "minLength": 1
+    },
+    "layoutsDir": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
