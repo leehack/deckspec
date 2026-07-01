@@ -566,9 +566,30 @@
           "color": "{colors.text}"
         },
         {
+          "id": "imageShapeProof",
+          "type": "imageShape",
+          "shape": "roundRect",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 1030,
+          "y": 710,
+          "w": 560,
+          "h": 180,
+          "sizing": {
+            "type": "cover",
+            "w": 560,
+            "h": 180
+          },
+          "rectRadius": 0.22,
+          "line": {
+            "color": "{colors.accent}",
+            "width": 2
+          },
+          "objectName": "image-shape-proof"
+        },
+        {
           "id": "footer",
           "type": "text",
-          "text": "Background image + imagePath + imageData + contain sizing all go through render QA.",
+          "text": "Background image + imagePath + imageData + imageShape all go through render QA.",
           "x": 120,
           "y": 930,
           "w": 1500,
@@ -1501,6 +1522,509 @@
         "fontSize": 16,
         "bold": true
       }
+    },
+    {
+      "id": "fg-11-image-shapes",
+      "layout": "diagram",
+      "sectionTitle": "Rendered Surfaces",
+      "notes": "ImageShape matrix renders verified preset shapes and a custom polygon geometry through the real PPTX -> PDF -> PNG path.",
+      "elements": [
+        {
+          "id": "eyebrow",
+          "type": "text",
+          "text": "IMAGESHAPE MATRIX",
+          "x": 90,
+          "y": 70,
+          "w": 760,
+          "h": 38,
+          "fontSize": 22,
+          "bold": true,
+          "color": "{colors.accent}"
+        },
+        {
+          "id": "title",
+          "type": "text",
+          "text": "ImageShape picture fills",
+          "x": 90,
+          "y": 126,
+          "w": 1550,
+          "h": 82,
+          "fontSize": 38,
+          "bold": true,
+          "color": "{colors.text}"
+        },
+        {
+          "id": "body",
+          "type": "text",
+          "text": "Each tile is a p:sp native PowerPoint shape with a picture fill (a:blipFill), not a rectangular p:pic overlay.",
+          "x": 90,
+          "y": 242,
+          "w": 1450,
+          "h": 72,
+          "fontSize": 18,
+          "color": "{colors.muted}"
+        },
+        {
+          "id": "imageShape-rect",
+          "type": "imageShape",
+          "shape": "rect",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 110,
+          "y": 330,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape rect"
+        },
+        {
+          "id": "imageShape-rect-label",
+          "type": "text",
+          "text": "rect",
+          "x": 110,
+          "y": 488,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-roundRect",
+          "type": "imageShape",
+          "shape": "roundRect",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 545,
+          "y": 330,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape roundRect",
+          "rectRadius": 0.32
+        },
+        {
+          "id": "imageShape-roundRect-label",
+          "type": "text",
+          "text": "roundRect",
+          "x": 545,
+          "y": 488,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-ellipse",
+          "type": "imageShape",
+          "shape": "ellipse",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 980,
+          "y": 330,
+          "w": 210,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 210,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape ellipse"
+        },
+        {
+          "id": "imageShape-ellipse-label",
+          "type": "text",
+          "text": "ellipse",
+          "x": 980,
+          "y": 488,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-triangle",
+          "type": "imageShape",
+          "shape": "triangle",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 1415,
+          "y": 330,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape triangle"
+        },
+        {
+          "id": "imageShape-triangle-label",
+          "type": "text",
+          "text": "triangle",
+          "x": 1415,
+          "y": 488,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-diamond",
+          "type": "imageShape",
+          "shape": "diamond",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 110,
+          "y": 580,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape diamond"
+        },
+        {
+          "id": "imageShape-diamond-label",
+          "type": "text",
+          "text": "diamond",
+          "x": 110,
+          "y": 738,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-pentagon",
+          "type": "imageShape",
+          "shape": "pentagon",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 545,
+          "y": 580,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape pentagon"
+        },
+        {
+          "id": "imageShape-pentagon-label",
+          "type": "text",
+          "text": "pentagon",
+          "x": 545,
+          "y": 738,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-hexagon",
+          "type": "imageShape",
+          "shape": "hexagon",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 980,
+          "y": 580,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape hexagon"
+        },
+        {
+          "id": "imageShape-hexagon-label",
+          "type": "text",
+          "text": "hexagon",
+          "x": 980,
+          "y": 738,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-star5",
+          "type": "imageShape",
+          "shape": "star5",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 1415,
+          "y": 580,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape star5"
+        },
+        {
+          "id": "imageShape-star5-label",
+          "type": "text",
+          "text": "star5",
+          "x": 1415,
+          "y": 738,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-heart",
+          "type": "imageShape",
+          "shape": "heart",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 110,
+          "y": 830,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape heart"
+        },
+        {
+          "id": "imageShape-heart-label",
+          "type": "text",
+          "text": "heart",
+          "x": 110,
+          "y": 988,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-cloud",
+          "type": "imageShape",
+          "shape": "cloud",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 545,
+          "y": 830,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape cloud"
+        },
+        {
+          "id": "imageShape-cloud-label",
+          "type": "text",
+          "text": "cloud",
+          "x": 545,
+          "y": 988,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-trapezoid",
+          "type": "imageShape",
+          "shape": "trapezoid",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 980,
+          "y": 830,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape trapezoid"
+        },
+        {
+          "id": "imageShape-trapezoid-label",
+          "type": "text",
+          "text": "trapezoid",
+          "x": 980,
+          "y": 988,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        },
+        {
+          "id": "imageShape-custom",
+          "type": "imageShape",
+          "shape": "customGeometry",
+          "imagePath": "examples/shared/demo-screenshot.png",
+          "x": 1415,
+          "y": 830,
+          "w": 230,
+          "h": 145,
+          "sizing": {
+            "type": "cover",
+            "w": 230,
+            "h": 145
+          },
+          "line": {
+            "color": "34D399",
+            "width": 2
+          },
+          "objectName": "Gallery ImageShape custom path",
+          "customGeometry": {
+            "paths": [
+              {
+                "commands": [
+                  {
+                    "type": "moveTo",
+                    "x": 0.08,
+                    "y": 0
+                  },
+                  {
+                    "type": "lineTo",
+                    "x": 0.92,
+                    "y": 0
+                  },
+                  {
+                    "type": "cubicBezTo",
+                    "x1": 1,
+                    "y1": 0,
+                    "x2": 1,
+                    "y2": 0.08,
+                    "x": 1,
+                    "y": 0.16
+                  },
+                  {
+                    "type": "lineTo",
+                    "x": 1,
+                    "y": 0.84
+                  },
+                  {
+                    "type": "cubicBezTo",
+                    "x1": 1,
+                    "y1": 0.92,
+                    "x2": 0.92,
+                    "y2": 1,
+                    "x": 0.84,
+                    "y": 1
+                  },
+                  {
+                    "type": "lineTo",
+                    "x": 0.5,
+                    "y": 1
+                  },
+                  {
+                    "type": "quadBezTo",
+                    "x1": 0.18,
+                    "y1": 0.82,
+                    "x": 0.08,
+                    "y": 0.48
+                  },
+                  {
+                    "type": "quadBezTo",
+                    "x1": 0,
+                    "y1": 0.18,
+                    "x": 0.08,
+                    "y": 0
+                  },
+                  {
+                    "type": "close"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "imageShape-custom-label",
+          "type": "text",
+          "text": "custom path",
+          "x": 1415,
+          "y": 988,
+          "w": 230,
+          "h": 34,
+          "fontSize": 18,
+          "bold": true,
+          "align": "center",
+          "color": "{colors.text}"
+        }
+      ]
     }
   ]
 }

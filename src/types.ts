@@ -1,6 +1,7 @@
 export type ThemeName = 'dark' | 'light';
 export type Severity = 'error' | 'warn';
-export type ElementType = 'text' | 'shape' | 'line' | 'image' | 'table' | 'chart' | 'media';
+export type ElementType =
+  'text' | 'shape' | 'line' | 'image' | 'imageShape' | 'table' | 'chart' | 'media';
 export type NativeOptions = Record<string, unknown>;
 
 export interface DeckSize {
@@ -43,7 +44,7 @@ export interface DeckSlideMaster {
 }
 
 export interface DeckSpec {
-  schemaVersion?: '0.1.0';
+  schemaVersion?: '0.2.0';
   deckId: string;
   title?: string;
   template: string;
@@ -92,6 +93,28 @@ export interface ImageSizingSpec {
   h: number;
   x?: number;
   y?: number;
+}
+
+export type CustomGeometryPoint = [number, number];
+
+export type CustomGeometryCommand =
+  | { type: 'moveTo' | 'lineTo'; x: number; y: number }
+  | { type: 'quadBezTo'; x1: number; y1: number; x: number; y: number }
+  | { type: 'cubicBezTo'; x1: number; y1: number; x2: number; y2: number; x: number; y: number }
+  | { type: 'arcTo'; wR: number; hR: number; stAng: number; swAng: number }
+  | { type: 'close' };
+
+export interface CustomGeometryPathSpec {
+  w?: number;
+  h?: number;
+  commands: CustomGeometryCommand[];
+}
+
+export interface CustomGeometrySpec {
+  points?: CustomGeometryPoint[];
+  paths?: CustomGeometryPathSpec[];
+  rawXml?: string;
+  close?: boolean;
 }
 
 export interface TextRun {
@@ -144,6 +167,7 @@ export interface DeckElement extends Partial<Box>, LineBox {
   flipV?: boolean;
   rounding?: boolean;
   sizing?: ImageSizingSpec;
+  customGeometry?: CustomGeometrySpec;
   rows?: TableRow[];
   chartType?:
     'area' | 'bar' | 'bar3D' | 'bubble' | 'doughnut' | 'line' | 'pie' | 'radar' | 'scatter';

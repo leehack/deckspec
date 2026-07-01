@@ -40,6 +40,26 @@ During local development, replace `deckspec` with `tsx src/cli.ts`.
 
 The supported authoring contract is `*.deck.source.json`. Narrative notes, planning docs, or Markdown drafts can live beside a deck, but DeckSpec does not compile Markdown into decks.
 
+Deck elements include text, shapes, lines, images, image-in-shape masks, tables, charts, and media. Use `type: "imageShape"` when an image should fill a native PowerPoint shape while preserving shape line/rounding:
+
+```json
+{
+  "id": "photo-frame",
+  "type": "imageShape",
+  "shape": "roundRect",
+  "imagePath": "assets/photo.png",
+  "x": 1040,
+  "y": 140,
+  "w": 560,
+  "h": 360,
+  "sizing": { "type": "cover", "w": 560, "h": 360 },
+  "rectRadius": 0.25,
+  "line": { "color": "34D399", "width": 2.25 }
+}
+```
+
+The current `imageShape` implementation supports PowerPoint native preset shapes with picture fill, line styling, and `rectRadius` where applicable. Common verified presets include `rect`, `roundRect`, `ellipse`, `triangle`, `diamond`, `pentagon`, `hexagon`, `star5`, `heart`, `cloud`, and `trapezoid`. Use `ellipse` for oval/circle masks; `circle` is accepted as an alias that emits an `ellipse` preset, with equal `w`/`h` producing a circle. `sizing.type` is translated into native DrawingML crop/fill rectangles for image-in-shape masks: `cover` emits `<a:srcRect>` crop percentages, `crop` maps an explicit source-pixel crop box to `<a:srcRect>`, and `contain` emits `<a:fillRect>` padding. Custom geometry supports normalized polygon `points`, richer `paths` with `moveTo`, `lineTo`, `quadBezTo`, `cubicBezTo`, `arcTo`, and `close` commands, plus `rawXml` passthrough for a complete imported `<a:custGeom>` block when exact reference PPTX geometry is required.
+
 See:
 
 - `examples/framework-smoke/deck.source.json` for a minimal deck.
@@ -49,10 +69,10 @@ See:
 
 ## Schema IDs and versioning
 
-DeckSpec publishes versioned JSON Schema IDs from immutable Git tags. For `0.1.0`, the deck schema ID is:
+DeckSpec publishes versioned JSON Schema IDs from immutable Git tags. For `0.2.0`, the deck schema ID is:
 
 ```text
-https://raw.githubusercontent.com/leehack/deckspec/v0.1.0/schemas/deck.schema.json
+https://raw.githubusercontent.com/leehack/deckspec/v0.2.0/schemas/deck.schema.json
 ```
 
 Use the package version as the schema version. Patch releases may clarify validation without changing accepted source shape; minor releases may add backwards-compatible schema fields; major releases are reserved for breaking source-schema or CLI/API changes. See `docs/versioning.md`.

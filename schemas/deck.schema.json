@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://raw.githubusercontent.com/leehack/deckspec/v0.1.0/schemas/deck.schema.json",
+  "$id": "https://raw.githubusercontent.com/leehack/deckspec/v0.2.0/schemas/deck.schema.json",
   "title": "DeckSpec Deck Source or Normalized Deck",
   "type": "object",
   "additionalProperties": false,
@@ -70,7 +70,7 @@
     "schemaVersion": {
       "type": "string",
       "description": "DeckSpec schema version used by this deck source. Omit to use the package default.",
-      "const": "0.1.0"
+      "const": "0.2.0"
     }
   },
   "$defs": {
@@ -231,6 +231,212 @@
         }
       }
     },
+    "customGeometryPoint": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "prefixItems": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      ]
+    },
+    "customGeometryCommand": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "x", "y"],
+          "properties": {
+            "type": {
+              "enum": ["moveTo", "lineTo"]
+            },
+            "x": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "x1", "y1", "x", "y"],
+          "properties": {
+            "type": {
+              "const": "quadBezTo"
+            },
+            "x1": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y1": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "x": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "x1", "y1", "x2", "y2", "x", "y"],
+          "properties": {
+            "type": {
+              "const": "cubicBezTo"
+            },
+            "x1": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y1": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "x2": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y2": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "x": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "wR", "hR", "stAng", "swAng"],
+          "properties": {
+            "type": {
+              "const": "arcTo"
+            },
+            "wR": {
+              "type": "number",
+              "minimum": 0
+            },
+            "hR": {
+              "type": "number",
+              "minimum": 0
+            },
+            "stAng": {
+              "type": "number"
+            },
+            "swAng": {
+              "type": "number"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "const": "close"
+            }
+          }
+        }
+      ]
+    },
+    "customGeometryPath": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["commands"],
+      "properties": {
+        "w": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "h": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "commands": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/customGeometryCommand"
+          }
+        }
+      }
+    },
+    "customGeometry": {
+      "type": "object",
+      "additionalProperties": false,
+      "anyOf": [
+        {
+          "required": ["points"]
+        },
+        {
+          "required": ["paths"]
+        },
+        {
+          "required": ["rawXml"]
+        }
+      ],
+      "properties": {
+        "points": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "$ref": "#/$defs/customGeometryPoint"
+          }
+        },
+        "paths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/customGeometryPath"
+          }
+        },
+        "rawXml": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^<a:custGeom[\\s\\S]*</a:custGeom>$"
+        },
+        "close": {
+          "type": "boolean"
+        }
+      }
+    },
     "tableCell": {
       "anyOf": [
         {
@@ -303,7 +509,7 @@
           "$ref": "#/$defs/nonEmptyString"
         },
         "type": {
-          "enum": ["text", "shape", "line", "image", "table", "chart", "media"]
+          "enum": ["text", "shape", "line", "image", "imageShape", "table", "chart", "media"]
         },
         "slot": {
           "$ref": "#/$defs/nonEmptyString"
@@ -423,6 +629,9 @@
         },
         "sizing": {
           "$ref": "#/$defs/imageSizing"
+        },
+        "customGeometry": {
+          "$ref": "#/$defs/customGeometry"
         },
         "rows": {
           "type": "array",
@@ -599,7 +808,7 @@
           "if": {
             "properties": {
               "type": {
-                "const": "image"
+                "enum": ["image", "imageShape"]
               }
             },
             "required": ["type"]

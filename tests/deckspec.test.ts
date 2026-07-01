@@ -12,7 +12,7 @@ import { normalizeDeck, loadDeckForBuild } from '../src/normalize.js';
 import { qaDeck } from '../src/qa.js';
 import { buildPptx, verifyPptx } from '../src/pptx.js';
 import { smoke } from '../src/smoke.js';
-import type { DeckSpec } from '../src/types.js';
+import type { DeckElement, DeckSpec } from '../src/types.js';
 
 function validDeck(): DeckSpec {
   return readJson('examples/framework-smoke/deck.source.json') as DeckSpec;
@@ -358,13 +358,19 @@ void test('feature gallery source exercises rendered PptxGenJS support surfaces'
   const pack = loadTemplatePack(source.template, source.theme);
   assert.deepEqual(validateDeck(source, { pack }), []);
   const normalized = normalizeDeck(source);
-  assert.equal(normalized.slides.length, 10);
+  assert.equal(normalized.slides.length, 11);
+  const imageShapeSlide = normalized.slides.find((slide) => slide.id === 'fg-11-image-shapes');
+  assert.ok(imageShapeSlide, 'feature gallery must include an imageShape matrix page');
+  assert.ok(
+    imageShapeSlide.elements.filter((element) => element.type === 'imageShape').length >= 12,
+    'imageShape matrix page must render the verified preset/custom coverage set',
+  );
   const report = qaDeck(normalized);
   assert.deepEqual(report.summary, { error: 0, warn: 0 });
   const types = new Set<string>(
     normalized.slides.flatMap((slide) => slide.elements.map((element) => element.type)),
   );
-  for (const type of ['text', 'shape', 'line', 'image', 'table', 'chart', 'media'])
+  for (const type of ['text', 'shape', 'line', 'image', 'imageShape', 'table', 'chart', 'media'])
     assert.ok(types.has(type), `missing ${type}`);
   assert.equal(normalized.sections?.length, 2);
   assert.equal(normalized.slideMasters?.length, 1);
@@ -692,6 +698,151 @@ void test('PPTX builder renders table, chart, image, notes, and integrity metada
             sizing: { type: 'contain', w: 220, h: 220 },
             nativeOptions: { objectName: 'Sized Image Proof' },
           },
+          {
+            id: 'image-shape',
+            type: 'imageShape',
+            shape: 'roundRect',
+            imagePath: 'examples/shared/demo-screenshot.png',
+            x: 1340,
+            y: 430,
+            w: 320,
+            h: 210,
+            sizing: { type: 'cover', w: 320, h: 210 },
+            rectRadius: 0.32,
+            line: { color: '34D399', width: 2.25 },
+            objectName: 'Image Shape Proof',
+          },
+          {
+            id: 'image-shape-rect',
+            type: 'imageShape',
+            shape: 'rect',
+            imagePath: 'examples/shared/demo-screenshot.png',
+            x: 980,
+            y: 690,
+            w: 180,
+            h: 120,
+            sizing: { type: 'cover', w: 180, h: 120 },
+            line: { color: '34D399', width: 1.5 },
+            objectName: 'Image Shape Rect Proof',
+          },
+          {
+            id: 'image-shape-ellipse',
+            type: 'imageShape',
+            shape: 'ellipse',
+            imagePath: 'examples/shared/demo-screenshot.png',
+            x: 1190,
+            y: 690,
+            w: 180,
+            h: 120,
+            sizing: { type: 'cover', w: 180, h: 120 },
+            line: { color: '34D399', width: 1.5 },
+            objectName: 'Image Shape Ellipse Proof',
+          },
+          {
+            id: 'image-shape-circle-alias',
+            type: 'imageShape',
+            shape: 'circle',
+            imagePath: 'examples/shared/demo-screenshot.png',
+            x: 1400,
+            y: 690,
+            w: 140,
+            h: 140,
+            sizing: { type: 'cover', w: 140, h: 140 },
+            line: { color: '34D399', width: 1.5 },
+            objectName: 'Image Shape Circle Alias Proof',
+          },
+          {
+            id: 'image-shape-custom-polygon',
+            type: 'imageShape',
+            shape: 'customGeometry',
+            imagePath: 'examples/shared/demo-screenshot.png',
+            x: 1580,
+            y: 680,
+            w: 180,
+            h: 150,
+            sizing: { type: 'cover', w: 180, h: 150 },
+            customGeometry: {
+              points: [
+                [0, 0],
+                [1, 0],
+                [1, 0.62],
+                [0.68, 0.62],
+                [0.5, 1],
+                [0, 1],
+              ],
+            },
+            line: { color: '34D399', width: 1.5 },
+            objectName: 'Image Shape Custom Polygon Proof',
+          },
+          {
+            id: 'image-shape-custom-path',
+            type: 'imageShape',
+            shape: 'customGeometry',
+            imagePath: 'examples/shared/demo-screenshot.png',
+            x: 1580,
+            y: 500,
+            w: 180,
+            h: 150,
+            sizing: { type: 'crop', x: 120, y: 40, w: 900, h: 540 },
+            customGeometry: {
+              paths: [
+                {
+                  commands: [
+                    { type: 'moveTo', x: 0.08, y: 0 },
+                    { type: 'lineTo', x: 0.92, y: 0 },
+                    { type: 'cubicBezTo', x1: 1, y1: 0, x2: 1, y2: 0.08, x: 1, y: 0.16 },
+                    { type: 'arcTo', wR: 0.12, hR: 0.12, stAng: 0, swAng: 90 },
+                    { type: 'lineTo', x: 0.5, y: 1 },
+                    { type: 'quadBezTo', x1: 0.2, y1: 0.8, x: 0.08, y: 0 },
+                    { type: 'close' },
+                  ],
+                },
+              ],
+            },
+            line: { color: '34D399', width: 1.5 },
+            objectName: 'Image Shape Custom Path Proof',
+          },
+          {
+            id: 'image-shape-custom-raw',
+            type: 'imageShape',
+            shape: 'customGeometry',
+            imagePath: 'examples/shared/demo-screenshot.png',
+            x: 1360,
+            y: 500,
+            w: 180,
+            h: 150,
+            sizing: { type: 'contain', w: 180, h: 150 },
+            customGeometry: {
+              rawXml:
+                '<a:custGeom><a:avLst/><a:gdLst/><a:ahLst/><a:cxnLst/><a:rect l="0" t="0" r="100000" b="100000"/><a:pathLst><a:path w="100000" h="100000"><a:moveTo><a:pt x="0" y="0"/></a:moveTo><a:lnTo><a:pt x="100000" y="50000"/></a:lnTo><a:lnTo><a:pt x="0" y="100000"/></a:lnTo><a:close/></a:path></a:pathLst></a:custGeom>',
+            },
+            line: { color: '34D399', width: 1.5 },
+            objectName: 'Image Shape Custom Raw Proof',
+          },
+          ...(
+            [
+              ['triangle', 'Triangle'],
+              ['diamond', 'Diamond'],
+              ['pentagon', 'Pentagon'],
+              ['hexagon', 'Hexagon'],
+              ['star5', 'Star'],
+              ['heart', 'Heart'],
+              ['cloud', 'Cloud'],
+              ['trapezoid', 'Trapezoid'],
+            ] as const
+          ).map(([shape, label], index): DeckElement => ({
+            id: `image-shape-${shape}`,
+            type: 'imageShape',
+            shape,
+            imagePath: 'examples/shared/demo-screenshot.png',
+            x: 120 + index * 190,
+            y: 850,
+            w: 150,
+            h: 120,
+            sizing: { type: 'cover', w: 150, h: 120 },
+            line: { color: '34D399', width: 1 },
+            objectName: `Image Shape ${label} Proof`,
+          })),
         ],
       },
     ],
@@ -727,6 +878,63 @@ void test('PPTX builder renders table, chart, image, notes, and integrity metada
   assert.match(slideXml, /Native Text Proof/);
   assert.match(slideXml, /show="0"/);
   assert.ok((slideXml.match(/<p:pic/g) ?? []).length >= 2);
+  const imageShape = /<p:sp>[\s\S]*?<p:cNvPr[^>]*name="Image Shape Proof"[\s\S]*?<\/p:sp>/.exec(
+    slideXml,
+  )?.[0];
+  assert.ok(imageShape, 'imageShape must remain a native shape object');
+  assert.match(imageShape, /<a:prstGeom prst="roundRect"/);
+  assert.match(imageShape, /<a:blipFill>/);
+  assert.match(imageShape, /<a:srcRect l="\d+" r="\d+"\/>/);
+  assert.match(imageShape, /<a:blip r:embed="rId\d+"/);
+  assert.match(imageShape, /<a:ln w="28575"/);
+  for (const [objectName, expectedPreset] of [
+    ['Image Shape Rect Proof', 'rect'],
+    ['Image Shape Ellipse Proof', 'ellipse'],
+    ['Image Shape Circle Alias Proof', 'ellipse'],
+    ['Image Shape Triangle Proof', 'triangle'],
+    ['Image Shape Diamond Proof', 'diamond'],
+    ['Image Shape Pentagon Proof', 'pentagon'],
+    ['Image Shape Hexagon Proof', 'hexagon'],
+    ['Image Shape Star Proof', 'star5'],
+    ['Image Shape Heart Proof', 'heart'],
+    ['Image Shape Cloud Proof', 'cloud'],
+    ['Image Shape Trapezoid Proof', 'trapezoid'],
+  ] as const) {
+    const block = new RegExp(
+      `<p:sp>[\\s\\S]*?<p:cNvPr[^>]*name="${objectName}"[\\s\\S]*?<\\/p:sp>`,
+    ).exec(slideXml)?.[0];
+    assert.ok(block, `${objectName} must remain a native shape object`);
+    assert.match(block, new RegExp(`<a:prstGeom prst="${expectedPreset}"`));
+    assert.match(block, /<a:blipFill>/);
+  }
+  const customBlock =
+    /<p:sp>[\s\S]*?<p:cNvPr[^>]*name="Image Shape Custom Polygon Proof"[\s\S]*?<\/p:sp>/.exec(
+      slideXml,
+    )?.[0];
+  assert.ok(customBlock, 'custom polygon imageShape must remain a native shape object');
+  assert.match(customBlock, /<a:custGeom>/);
+  assert.match(customBlock, /<a:path w="100000" h="100000">/);
+  assert.match(customBlock, /<a:pt x="68000" y="62000"\/>/);
+  assert.match(customBlock, /<a:blipFill>/);
+  const pathBlock =
+    /<p:sp>[\s\S]*?<p:cNvPr[^>]*name="Image Shape Custom Path Proof"[\s\S]*?<\/p:sp>/.exec(
+      slideXml,
+    )?.[0];
+  assert.ok(pathBlock, 'custom path imageShape must remain a native shape object');
+  assert.match(pathBlock, /<a:cubicBezTo>/);
+  assert.match(pathBlock, /<a:quadBezTo>/);
+  assert.match(pathBlock, /<a:arcTo wR="12000" hR="12000" stAng="0" swAng="5400000"\/>/);
+  assert.match(pathBlock, /<a:srcRect l="10000" t="5263" r="15000" b="23684"\/>/);
+  const rawBlock =
+    /<p:sp>[\s\S]*?<p:cNvPr[^>]*name="Image Shape Custom Raw Proof"[\s\S]*?<\/p:sp>/.exec(
+      slideXml,
+    )?.[0];
+  assert.ok(rawBlock, 'raw customGeometry imageShape must remain a native shape object');
+  assert.match(rawBlock, /<a:lnTo><a:pt x="100000" y="50000"\/><\/a:lnTo>/);
+  assert.match(rawBlock, /<a:fillRect t="\d+" b="\d+"\/>/);
+  const relsXml = await zip.file('ppt/slides/_rels/slide1.xml.rels')!.async('string');
+  assert.match(relsXml, /relationships\/image/);
+  assert.match(relsXml, /Target="\.\.\/media\/imageShape-/);
 });
 
 void test('smoke writes normalized, QA, and PPTX outputs without render', async () => {
