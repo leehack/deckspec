@@ -44,6 +44,7 @@ jobs:
           registry-url: https://registry.npmjs.org
           cache: npm
       - name: Verify package version matches tag
+        id: package
         env:
           RELEASE_TAG: ${{ steps.release.outputs.tag }}
         run: |
@@ -52,9 +53,25 @@ jobs:
             echo "package.json version $VERSION does not match tag $RELEASE_TAG" >&2
             exit 1
           fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+      - name: Check whether package version is already published
+        id: npm
+        env:
+          VERSION: ${{ steps.package.outputs.version }}
+        run: |
+          if npm view "deckspec@$VERSION" version >/dev/null 2>&1; then
+            echo "deckspec@$VERSION is already published; skipping npm publish."
+            echo "published=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "published=false" >> "$GITHUB_OUTPUT"
+          fi
       - run: sudo apt-get update && sudo apt-get install -y libreoffice poppler-utils
+        if: steps.npm.outputs.published != 'true'
       - run: npm ci
+        if: steps.npm.outputs.published != 'true'
       - run: npm run verify:release
+        if: steps.npm.outputs.published != 'true'
       - run: npm publish --access public --provenance
+        if: steps.npm.outputs.published != 'true'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
